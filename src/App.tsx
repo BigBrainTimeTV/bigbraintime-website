@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <h1>BIGBRAINTIME</h1>
-      <h2>Launching August 1, 2024</h2>
+      <h2>Launching August 1, 2025</h2>
       <p>Learning in public. New skill every 30 days.</p>
       <form onSubmit={handleSubmit}>
         <input type="email" placeholder="Get notified at launch" />
