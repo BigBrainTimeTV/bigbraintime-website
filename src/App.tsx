@@ -60,8 +60,12 @@ function HeroSection() {
 function WhyWatchSection() {
   const faqs = [
     {
+      question: "I'm also doing the Scrimba path. Why should I watch?",
+      answer: "You'll see someone else face the same challenges, get stuck, and push through. It's like having a study buddy who isn't afraid to show the messy parts. You might even pick up tips or motivation to keep going when things get tough."
+    },
+    {
       question: "Why watch someone else learn?",
-      answer: "Because real learning is messy. You'll see the actual struggles, the moments of doubt, and the breakthroughs that happen when you're genuinely stuck."
+      answer: "Because real learning is messy. You'll see the actual struggles, the moments of doubt, and the breakthroughs that happen when you're genuinely stuck. No edited highlights, just the raw journey."
     },
     {
       question: "What if I'm not a developer?",
