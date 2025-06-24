@@ -107,7 +107,7 @@ function UpcomingSection() {
             </div>
           </div>
           <div className="timeline-item">
-            <div className="timeline-date">Future</div>
+            <div className="timeline-date"></div>
             <div className="timeline-content">
               <h3>What's Next?</h3>
               <p>Community will decide what comes after the full stack journey.</p>
