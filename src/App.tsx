@@ -97,7 +97,7 @@ function UpcomingSection() {
   return (
     <section className="upcoming">
       <div className="container">
-        <h2>The Learning Path</h2>
+        <h2>The Journey Ahead</h2>
         <div className="timeline">
           <div className="timeline-item active">
             <div className="timeline-date">August 2025</div>
