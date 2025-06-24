@@ -14,12 +14,12 @@
   --text-secondary: #a0a0a0;
   --accent: #10B981;
   
-  /* Spacing system - consistency is key */
+  /* Spacing system - more reasonable values */
   --space-xs: 0.5rem;
   --space-sm: 1rem;
-  --space-md: 2rem;
-  --space-lg: 4rem;
-  --space-xl: 8rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
 }
 
 body {
@@ -36,11 +36,11 @@ body {
 
 /* Hero Section */
 .hero {
-  min-height: 90vh;
+  min-height: unset;
+  padding: var(--space-lg) var(--space-md) var(--space-md) var(--space-md);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-md);
   position: relative;
 }
 
@@ -151,119 +151,48 @@ body {
   padding: 0 var(--space-md);
 }
 
-/* Why Watch Section */
+/* Why Watch Section - New FAQ Style */
 .why-watch {
-  padding: var(--space-xl) 0;
+  padding: var(--space-md) 0 var(--space-xl) 0;
   background: var(--surface);
+  margin-bottom: var(--space-xl);
 }
 
-.why-watch h2 {
-  text-align: center;
-  font-size: clamp(2rem, 5vw, 3rem);
-  margin-bottom: var(--space-lg);
-  color: var(--text-primary);
-}
-
-.reasons-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--space-md);
-  margin-top: var(--space-lg);
-}
-
-.reason-card {
-  background: var(--background);
-  padding: var(--space-md);
-  border-radius: 16px;
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.reason-card:hover {
-  transform: translateY(-4px);
-}
-
-.reason-emoji {
-  font-size: 3rem;
-  margin-bottom: var(--space-sm);
-}
-
-.reason-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: var(--space-sm);
-  color: var(--text-primary);
-}
-
-.reason-card p {
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-/* Upcoming Section */
-.upcoming {
-  padding: var(--space-xl) 0;
-}
-
-.upcoming h2 {
-  text-align: center;
-  font-size: clamp(2rem, 5vw, 3rem);
-  margin-bottom: var(--space-lg);
-  color: var(--text-primary);
-}
-
-.timeline {
+.faq-list {
   max-width: 800px;
   margin: 0 auto;
 }
 
-.timeline-item {
-  display: flex;
-  gap: var(--space-md);
-  margin-bottom: var(--space-lg);
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
+.faq-item {
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.timeline-item.active {
-  opacity: 1;
+.faq-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
-.timeline-date {
-  min-width: 120px;
+.faq-question {
+  font-size: 1.4rem;
   font-weight: 600;
-  color: var(--accent);
-  font-size: 1.1rem;
-}
-
-.timeline-content {
-  flex: 1;
-}
-
-.timeline-content h3 {
-  font-size: 1.3rem;
-  margin-bottom: var(--space-xs);
+  margin-bottom: var(--space-sm);
   color: var(--text-primary);
 }
 
-.timeline-content p {
+.faq-answer {
+  font-size: 1.1rem;
+  line-height: 1.7;
   color: var(--text-secondary);
-  line-height: 1.6;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .timeline-item {
-    flex-direction: column;
-    gap: var(--space-sm);
-  }
-  
-  .timeline-date {
-    min-width: auto;
-  }
-  
-  .reasons-grid {
-    grid-template-columns: 1fr;
-  }
+/* Remove the old grid styles that are no longer needed */
+.reasons-grid,
+.reason-card,
+.reason-emoji {
+  display: none;
 }
 
 /* Animations */
@@ -276,4 +205,10 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Upcoming Section */
+.upcoming {
+  padding: var(--space-xl) 0;
+  margin-top: var(--space-xl);
 } 

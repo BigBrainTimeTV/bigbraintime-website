@@ -58,34 +58,29 @@ function HeroSection() {
 }
 
 function WhyWatchSection() {
-  const reasons = [
+  const faqs = [
     {
-      title: "Real Struggles",
-      description: "No edited highlights. Watch me get stuck, frustrated, and eventually breakthrough.",
-      emoji: "😤"
+      question: "Why watch someone else learn?",
+      answer: "Because real learning is messy. You'll see the actual struggles, the moments of doubt, and the breakthroughs that happen when you're genuinely stuck."
     },
     {
-      title: "Learn Together",
-      description: "Chat helps when I'm stuck. We're figuring this out as a community.",
-      emoji: "🤝"
+      question: "What if I'm not a developer?",
+      answer: "Perfect. This isn't about teaching you to code, it's about showing you how to learn anything. The process of going from zero to competent is universal."
     },
     {
-      title: "Full Stack Journey",
-      description: "From frontend to backend, database to deployment - the complete developer path.",
-      emoji: "🎯"
+      question: "How is this different from tutorials?",
+      answer: "Tutorials show you the right way. I'm showing you what happens when you don't know the right way. You'll see the mistakes, the debugging, the 'why isn't this working' moments that tutorials skip."
     }
   ];
 
   return (
     <section className="why-watch">
       <div className="container">
-        <h2>Why Watch Someone Else Learn?</h2>
-        <div className="reasons-grid">
-          {reasons.map((reason, index) => (
-            <div key={index} className="reason-card">
-              <div className="reason-emoji">{reason.emoji}</div>
-              <h3>{reason.title}</h3>
-              <p>{reason.description}</p>
+        <div className="faq-list">
+          {faqs.map((faq, index) => (
+            <div key={index} className="faq-item">
+              <h3 className="faq-question">{faq.question}</h3>
+              <p className="faq-answer">{faq.answer}</p>
             </div>
           ))}
         </div>
