@@ -8,19 +8,100 @@ declare global {
   }
 }
 
+function Navigation() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  return (
+    <nav className="navigation">
+      <div className="nav-container">
+        <button onClick={scrollToTop} className="nav-logo">
+          BigBrainTime
+        </button>
+        <a 
+          href="https://twitch.tv/bigbraintime" 
+          target="_blank"
+          rel="noopener noreferrer"
+          className="watch-live-button"
+        >
+          🔴 Watch Live
+        </a>
+      </div>
+    </nav>
+  );
+}
+
+function CountdownTimer() {
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0 });
+
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      const launchDate = new Date('2025-08-01T00:00:00');
+      const now = new Date();
+      const difference = launchDate.getTime() - now.getTime();
+
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+          minutes: Math.floor((difference / 1000 / 60) % 60)
+        });
+      }
+    };
+
+    calculateTimeLeft();
+    const timer = setInterval(calculateTimeLeft, 60000); // Update every minute
+
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="countdown">
+      <div className="countdown-item">
+        <div className="countdown-value">{timeLeft.days}</div>
+        <div className="countdown-label">days</div>
+      </div>
+      <div className="countdown-item">
+        <div className="countdown-value">{timeLeft.hours}</div>
+        <div className="countdown-label">hours</div>
+      </div>
+      <div className="countdown-item">
+        <div className="countdown-value">{timeLeft.minutes}</div>
+        <div className="countdown-label">minutes</div>
+      </div>
+    </div>
+  );
+}
+
 function HeroSection() {
   const [email, setEmail] = useState('');
   
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // We'll track this event for analytics
-    if (window.sa_event) {
-      window.sa_event('email_signup');
+    
+    try {
+      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email,
+          _subject: 'New BigBrainTime Signup'
+        })
+      });
+
+      if (response.ok) {
+        window.sa_event?.('email_signup');
+        setEmail('');
+        alert('Welcome aboard! Check your email to confirm.');
+      } else {
+        alert('Something went wrong. Try again?');
+      }
+    } catch (error) {
+      alert('Something went wrong. Try again?');
     }
-    console.log('Email submitted:', email);
-    // TODO: Actually save this email somewhere
-    setEmail('');
-    alert('You\'re in! Check your email for updates.');
   };
 
   return (
@@ -52,6 +133,8 @@ function HeroSection() {
           <span className="launch-label">First Stream:</span>
           <span className="launch-value">August 1, 2025</span>
         </div>
+        
+        <CountdownTimer />
       </div>
     </section>
   );
@@ -119,9 +202,68 @@ function UpcomingSection() {
   );
 }
 
+function DiscordSection() {
+  return (
+    <section className="discord-section">
+      <div className="container">
+        <h2>Join the Community</h2>
+        <p className="discord-description">
+          Connect with other learners, share resources, and get help when you're stuck.
+        </p>
+        <a 
+          href="https://discord.gg/bigbrain" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="discord-button"
+          onClick={() => window.sa_event?.('joined_discord')}
+        >
+          <span>💬</span> Join Discord Server
+        </a>
+      </div>
+    </section>
+  );
+}
+
+function Footer() {
+  const socials = [
+    { name: 'Twitch', url: 'https://twitch.tv/bigbraintime', icon: '🎮' },
+    { name: 'Discord', url: 'https://discord.gg/bigbrain', icon: '💬' },
+    { name: 'Twitter', url: 'https://twitter.com/bigbraintime', icon: '🐦' },
+    { name: 'YouTube', url: 'https://youtube.com/@bigbraintime', icon: '📺' },
+    { name: 'GitHub', url: 'https://github.com/bigbraintimetv', icon: '💻' }
+  ];
+
+  return (
+    <footer className="footer">
+      <div className="container">
+        <div className="footer-content">
+          <div className="social-links">
+            {socials.map((social) => (
+              <a
+                key={social.name}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+                onClick={() => window.sa_event?.(`clicked_${social.name.toLowerCase()}`)}
+              >
+                <span className="social-icon">{social.icon}</span>
+                <span className="social-name">{social.name}</span>
+              </a>
+            ))}
+          </div>
+          <p className="footer-tagline">
+            Learning in public. Failing forward. Growing together.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
 function App() {
   useEffect(() => {
-    // Initialize Simple Analytics
+    // Simple Analytics
     const script = document.createElement('script');
     script.src = 'https://scripts.simpleanalyticscdn.com/latest.js';
     script.async = true;
@@ -131,9 +273,12 @@ function App() {
 
   return (
     <div className="App">
+      <Navigation />
       <HeroSection />
       <WhyWatchSection />
       <UpcomingSection />
+      <DiscordSection />
+      <Footer />
     </div>
   );
 }
