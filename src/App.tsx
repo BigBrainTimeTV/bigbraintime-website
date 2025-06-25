@@ -227,10 +227,10 @@ function DiscordSection() {
 function Footer() {
   const socials = [
     { name: 'Twitch', url: 'https://www.twitch.tv/bigbraintimetv', icon: '🎮' },
-    { name: 'Discord', url: 'https://discord.gg/bigbrain', icon: '💬' },
-    { name: 'Twitter', url: 'https://twitter.com/bigbraintime', icon: '🐦' },
-    { name: 'YouTube', url: 'https://youtube.com/@bigbraintime', icon: '📺' },
-    { name: 'GitHub', url: 'https://github.com/bigbraintimetv', icon: '💻' }
+  //  { name: 'Discord', url: 'https://discord.gg/bigbrain', icon: '💬' },
+    { name: 'Twitter', url: 'https://x.com/bigbraintimetv', icon: '🐦' },
+    { name: 'YouTube', url: 'https://www.youtube.com/@bigbraintimetv', icon: '📺' },
+    { name: 'GitHub', url: 'https://github.com/orgs/BigBrainTimeTV/repositories', icon: '💻' }
   ];
 
   return (
