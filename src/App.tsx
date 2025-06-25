@@ -111,8 +111,8 @@ function HeroSection() {
           Failing Our Way to Success
         </h1>
         <p className="hero-subtitle">
-          Watch me tackle the Scrimba Full Stack Career Path from complete beginner 
-          to job-ready developer. Every failure and breakthrough streamed live on Twitch.
+          Join me as I tackle the Scrimba Full Stack Path, CompTIA certifications, 
+          and whatever the community throws at me next.Every failure and breakthrough streamed live on Twitch.
         </p>
         
         <form className="signup-form" onSubmit={handleSubmit}>
@@ -190,7 +190,13 @@ function UpcomingSection() {
             </div>
           </div>
           <div className="timeline-item">
-            <div className="timeline-date"></div>
+            <div className="timeline-date">Next:</div>
+            <div className="timeline-content">
+              <h3>CompTIA A+ Certification</h3>
+              <p>From zero IT knowledge to certified. Because why not?</p>
+            </div>
+          </div>
+          <div className="timeline-item timeline-item-center">
             <div className="timeline-content">
               <h3>What's Next?</h3>
               <p>Community will decide what comes after the full stack journey.</p>
