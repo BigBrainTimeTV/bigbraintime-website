@@ -112,7 +112,8 @@ function HeroSection() {
         </h1>
         <p className="hero-subtitle">
           Join me as I tackle the Scrimba Full Stack Path, CompTIA certifications, 
-          and whatever the community throws at me next.Every failure and breakthrough streamed live on Twitch.
+          and whatever the community throws at me next. 
+          Every failure and breakthrough streamed live on Twitch.
         </p>
         
         <form className="signup-form" onSubmit={handleSubmit}>
