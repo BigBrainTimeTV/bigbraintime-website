@@ -20,7 +20,7 @@ function Navigation() {
           BigBrainTime
         </button>
         <a 
-          href="https://twitch.tv/bigbraintime" 
+          href="https://www.twitch.tv/bigbraintimetv" 
           target="_blank"
           rel="noopener noreferrer"
           className="watch-live-button"
@@ -226,7 +226,7 @@ function DiscordSection() {
 
 function Footer() {
   const socials = [
-    { name: 'Twitch', url: 'https://twitch.tv/bigbraintime', icon: '🎮' },
+    { name: 'Twitch', url: 'https://www.twitch.tv/bigbraintimetv', icon: '🎮' },
     { name: 'Discord', url: 'https://discord.gg/bigbrain', icon: '💬' },
     { name: 'Twitter', url: 'https://twitter.com/bigbraintime', icon: '🐦' },
     { name: 'YouTube', url: 'https://youtube.com/@bigbraintime', icon: '📺' },
