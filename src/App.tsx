@@ -76,9 +76,11 @@ function CountdownTimer() {
 
 function HeroSection() {
   const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
     try {
       const response = await fetch('https://formspree.io/f/mjkraqqa', {
@@ -101,6 +103,8 @@ function HeroSection() {
       }
     } catch (error) {
       alert('Something went wrong. Try again?');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -124,9 +128,10 @@ function HeroSection() {
             onChange={(e) => setEmail(e.target.value)}
             required
             className="email-input"
+            disabled={isSubmitting}
           />
-          <button type="submit" className="cta-button primary">
-            Join the Journey
+          <button type="submit" className="cta-button primary" disabled={isSubmitting}>
+            {isSubmitting ? 'Joining...' : 'Join the Journey'}
           </button>
         </form>
         

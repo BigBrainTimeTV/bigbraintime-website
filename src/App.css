@@ -156,6 +156,12 @@ body {
   box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.1);
 }
 
+.email-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: var(--background);
+}
+
 .cta-button {
   padding: 1rem 2rem;
   border: none;
@@ -172,10 +178,17 @@ body {
   color: white;
 }
 
-.cta-button.primary:hover {
+.cta-button.primary:hover:not(:disabled) {
   background: var(--accent);
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+}
+
+.cta-button.primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 /* Launch date badge */
