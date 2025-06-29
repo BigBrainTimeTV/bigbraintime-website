@@ -3,23 +3,58 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 :root {
-  /* Your brand colors from Canva */
+  /* Dark theme (default) */
   --primary: #818CF8;
   --background: #0a0a0a;
   --surface: #1a1a1a;
+  --surface-hover: #2a2a2a;
   --text-primary: #ffffff;
   --text-secondary: #a0a0a0;
+  --text-muted: #666666;
   --accent: #10B981;
+  --border: rgba(255, 255, 255, 0.1);
+  --border-hover: rgba(255, 255, 255, 0.2);
+  --shadow: rgba(0, 0, 0, 0.3);
+  --shadow-hover: rgba(0, 0, 0, 0.5);
+  --nav-bg: rgba(10, 10, 10, 0.95);
+  --input-bg: #1a1a1a;
+  --input-border: transparent;
+  --input-border-focus: #818CF8;
+  --input-shadow: rgba(129, 140, 248, 0.1);
+  --button-shadow: rgba(16, 185, 129, 0.3);
   
-  /* Spacing system - more reasonable values */
+  /* Spacing system */
   --space-xs: 0.5rem;
   --space-sm: 1rem;
   --space-md: 1.5rem;
   --space-lg: 2.5rem;
   --space-xl: 4rem;
+}
+
+/* Light theme */
+body.light-mode {
+  --primary: #6366F1;
+  --background: #ffffff;
+  --surface: #f8fafc;
+  --surface-hover: #e2e8f0;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  --accent: #059669;
+  --border: rgba(0, 0, 0, 0.1);
+  --border-hover: rgba(0, 0, 0, 0.2);
+  --shadow: rgba(0, 0, 0, 0.1);
+  --shadow-hover: rgba(0, 0, 0, 0.15);
+  --nav-bg: rgba(255, 255, 255, 0.95);
+  --input-bg: #ffffff;
+  --input-border: #e2e8f0;
+  --input-border-focus: #6366F1;
+  --input-shadow: rgba(99, 102, 241, 0.1);
+  --button-shadow: rgba(5, 150, 105, 0.3);
 }
 
 body {
@@ -28,6 +63,7 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .App {
@@ -40,9 +76,9 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(10, 10, 10, 0.95);
+  background: var(--nav-bg);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--border);
   z-index: 1000;
   padding: var(--space-sm) 0;
 }
@@ -143,7 +179,7 @@ body {
   flex: 1;
   padding: 1rem 1.5rem;
   background: var(--surface);
-  border: 2px solid transparent;
+  border: 2px solid var(--input-border);
   border-radius: 12px;
   color: var(--text-primary);
   font-size: 1rem;
@@ -152,14 +188,33 @@ body {
 
 .email-input:focus {
   outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.1);
+  border-color: var(--input-border-focus);
+  box-shadow: 0 0 0 3px var(--input-shadow);
 }
 
 .email-input:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   background: var(--background);
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: var(--space-xs);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  margin-left: var(--space-sm);
+}
+
+.theme-toggle:hover {
+  color: var(--primary);
+  background: var(--surface-hover);
+  transform: scale(1.1);
 }
 
 .cta-button {
@@ -181,7 +236,7 @@ body {
 .cta-button.primary:hover:not(:disabled) {
   background: var(--accent);
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 10px 25px var(--button-shadow);
 }
 
 .cta-button.primary:disabled {
@@ -234,7 +289,7 @@ body {
 .faq-item {
   margin-bottom: var(--space-md);
   padding-bottom: var(--space-md);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--border);
   animation: fadeInUp 1.2s ease-out both;
 }
 
@@ -401,14 +456,14 @@ body {
 .discord-button:hover {
   background: var(--accent);
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 10px 25px var(--button-shadow);
 }
 
 /* Footer */
 .footer {
   margin-top: var(--space-xl);
   padding: var(--space-lg) 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--border);
 }
 
 .footer-content {

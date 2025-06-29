@@ -9,6 +9,29 @@ declare global {
 }
 
 function Navigation() {
+  const [isDark, setIsDark] = useState(true);
+
+  useEffect(() => {
+    // Check for saved theme preference or default to dark mode
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme) {
+      setIsDark(savedTheme === 'dark');
+      document.body.classList.toggle('light-mode', savedTheme === 'light');
+    } else {
+      setIsDark(prefersDark);
+      document.body.classList.toggle('light-mode', !prefersDark);
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = !isDark;
+    setIsDark(newTheme);
+    document.body.classList.toggle('light-mode', !newTheme);
+    localStorage.setItem('theme', newTheme ? 'dark' : 'light');
+  };
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -19,14 +42,19 @@ function Navigation() {
         <button onClick={scrollToTop} className="nav-logo">
           BigBrainTime
         </button>
-        <a 
-          href="https://www.twitch.tv/bigbraintimetv" 
-          target="_blank"
-          rel="noopener noreferrer"
-          className="watch-live-button"
-        >
-          🔴 Watch Live
-        </a>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle theme">
+            {isDark ? '☀️' : '🌙'}
+          </button>
+          <a 
+            href="https://www.twitch.tv/bigbraintimetv" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="watch-live-button"
+          >
+            🔴 Watch Live
+          </a>
+        </div>
       </div>
     </nav>
   );
