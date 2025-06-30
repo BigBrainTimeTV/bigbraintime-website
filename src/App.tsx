@@ -8,6 +8,27 @@ declare global {
   }
 }
 
+function ScrollProgress() {
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (window.scrollY / totalHeight) * 100;
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <div className="scroll-progress">
+      <div className="progress-bar" style={{ width: `${scrollProgress}%` }} />
+    </div>
+  );
+}
+
 function Navigation() {
   const [isDark, setIsDark] = useState(true);
 
@@ -314,6 +335,7 @@ function App() {
   return (
     <div className="App">
       <Navigation />
+      <ScrollProgress />
       <HeroSection />
       <WhyWatchSection />
       <UpcomingSection />
