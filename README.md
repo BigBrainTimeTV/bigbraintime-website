@@ -29,7 +29,7 @@ BigBrainTime is a live streaming project focused on learning in public. The webs
 - **Accessibility:** ARIA labels, keyboard navigation, and proper contrast
 - **Analytics:** Simple Analytics integration for tracking user interactions
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Frontend:** React 19.1.0
 - **Language:** TypeScript 4.9.5
@@ -39,7 +39,7 @@ BigBrainTime is a live streaming project focused on learning in public. The webs
 - **Analytics:** Simple Analytics
 - **Deployment:** Ready for Vercel, Netlify, or any static hosting
 
-## 📦 Installation
+## Installation
 
 1. **Clone the repository**
    ```bash
@@ -136,7 +136,7 @@ const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
 });
 ```
 
-## 📱 Responsive Design
+## Responsive Design
 
 The website is fully responsive with breakpoints:
 - **Mobile:** < 640px
