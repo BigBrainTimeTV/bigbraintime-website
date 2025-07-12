@@ -289,7 +289,7 @@ function Footer() {
   const socials = [
     { name: 'Twitch', url: 'https://www.twitch.tv/bigbraintimetv', icon: '🎮' },
   //  { name: 'Discord', url: 'https://discord.gg/bigbrain', icon: '💬' },
-    { name: 'Twitter', url: 'https://x.com/bigbraintimetv', icon: '🐦' },
+    { name: 'Bluesky', url: 'https://bsky.app/profile/bigbraintimetv.bsky.social', icon: '☁️' },
     { name: 'YouTube', url: 'https://www.youtube.com/@bigbraintimetv', icon: '📺' },
     { name: 'GitHub', url: 'https://github.com/orgs/BigBrainTimeTV/repositories', icon: '💻' }
   ];

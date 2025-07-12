@@ -20,7 +20,7 @@ BigBrainTime is a live streaming project focused on learning in public. The webs
 - **Email Signup:** Formspree integration for newsletter subscriptions
 - **Countdown Timer:** Real-time countdown to first stream (August 1, 2025)
 - **Scroll Progress:** Visual indicator showing page scroll progress
-- **Social Integration:** Links to Twitch, Discord, Twitter, YouTube, and GitHub
+- **Social Integration:** Links to Twitch, Discord, Bluesky, YouTube, and GitHub
 
 ### Technical Features
 - **TypeScript:** Full type safety and better development experience
@@ -171,7 +171,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Live Site:** [bigbraintime.com](https://bigbraintime.com)
 - **Twitch:** [twitch.tv/bigbraintimetv](https://www.twitch.tv/bigbraintimetv)
 - **Discord:** [discord.gg/bigbrain](https://discord.gg/bigbrain)
-- **Twitter:** [@bigbraintimetv](https://x.com/bigbraintimetv)
+- **Bluesky:** [@bigbraintimetv](https://bsky.app/profile/bigbraintimetv.bsky.social)
 - **YouTube:** [@bigbraintimetv](https://www.youtube.com/@bigbraintimetv)
 - **GitHub:** [BigBrainTimeTV](https://github.com/orgs/BigBrainTimeTV/repositories)
 
