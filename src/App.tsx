@@ -82,7 +82,7 @@ function Navigation() {
 }
 
 function CountdownTimer() {
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0 });
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
     const calculateTimeLeft = () => {
@@ -94,13 +94,14 @@ function CountdownTimer() {
         setTimeLeft({
           days: Math.floor(difference / (1000 * 60 * 60 * 24)),
           hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / 1000 / 60) % 60)
+          minutes: Math.floor((difference / 1000 / 60) % 60),
+          seconds: Math.floor((difference / 1000) % 60)
         });
       }
     };
 
     calculateTimeLeft();
-    const timer = setInterval(calculateTimeLeft, 60000); // Update every minute
+    const timer = setInterval(calculateTimeLeft, 1000); // Update every second
 
     return () => clearInterval(timer);
   }, []);
@@ -180,7 +181,11 @@ function HeroSection() {
             disabled={isSubmitting}
           />
           <button type="submit" className="cta-button primary" disabled={isSubmitting}>
-            {isSubmitting ? 'Joining...' : 'Join the Journey'}
+            {isSubmitting ? (
+              <span>Joining... <span className="loading-dots">...</span></span>
+            ) : (
+              'Join the Journey'
+            )}
           </button>
         </form>
         
