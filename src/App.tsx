@@ -8,6 +8,32 @@ declare global {
   }
 }
 
+function BackToTop() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const toggleVisibility = () => {
+      setIsVisible(window.pageYOffset > 300);
+    };
+    window.addEventListener('scroll', toggleVisibility);
+    return () => window.removeEventListener('scroll', toggleVisibility);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  return isVisible ? (
+    <button 
+      onClick={scrollToTop}
+      className="back-to-top"
+      aria-label="Back to top"
+    >
+      ↑
+    </button>
+  ) : null;
+}
+
 function ScrollProgress() {
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -352,6 +378,7 @@ function App() {
       <UpcomingSection />
       <DiscordSection />
       <Footer />
+      <BackToTop />
     </div>
   );
 }
