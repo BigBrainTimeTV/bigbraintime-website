@@ -156,6 +156,34 @@ function CountdownTimer() {
   );
 }
 
+function ShareButtons() {
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: 'BigBrainTime - Learning in Public',
+          text: 'Watch me tackle the Scrimba Full Stack Path from complete beginner to job-ready developer. Live on Twitch.',
+          url: window.location.href
+        });
+      } catch (error) {
+        console.log('Share cancelled');
+      }
+    } else {
+      // Fallback: copy URL to clipboard
+      navigator.clipboard.writeText(window.location.href);
+      alert('Link copied to clipboard!');
+    }
+  };
+
+  return (
+    <div className="share-buttons">
+      <button onClick={handleShare} className="share-button">
+        📤 Share
+      </button>
+    </div>
+  );
+}
+
 function HeroSection() {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -227,6 +255,7 @@ function HeroSection() {
         </div>
         
         <CountdownTimer />
+        <ShareButtons />
       </div>
     </section>
   );

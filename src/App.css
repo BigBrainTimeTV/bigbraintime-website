@@ -595,3 +595,32 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px var(--shadow-hover);
 }
+
+.share-buttons {
+  margin-top: var(--space-md);
+  display: flex;
+  justify-content: center;
+}
+
+.share-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--surface);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.share-button:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px var(--shadow);
+}
