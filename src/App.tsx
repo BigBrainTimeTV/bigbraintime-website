@@ -59,7 +59,6 @@ function Navigation() {
   const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
-    // Check for saved theme preference or default to dark mode
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
@@ -82,6 +81,22 @@ function Navigation() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (e.ctrlKey && e.key === 't') {
+        e.preventDefault();
+        toggleTheme();
+      }
+      if (e.ctrlKey && e.key === 'k') {
+        e.preventDefault();
+        scrollToTop();
+      }
+    };
+    
+    document.addEventListener('keydown', handleKeyPress);
+    return () => document.removeEventListener('keydown', handleKeyPress);
+  }, [isDark]);
 
   return (
     <nav className="navigation">
