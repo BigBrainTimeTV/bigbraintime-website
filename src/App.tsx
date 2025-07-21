@@ -127,7 +127,7 @@ function CountdownTimer() {
 
   useEffect(() => {
     const calculateTimeLeft = () => {
-      const launchDate = new Date('2025-08-01T00:00:00');
+      const launchDate = new Date('2025-08-01T08:00:00Z'); // 10:00 CEST
       const now = new Date();
       const difference = launchDate.getTime() - now.getTime();
 
