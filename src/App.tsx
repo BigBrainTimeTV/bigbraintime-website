@@ -353,7 +353,7 @@ function DiscordSection() {
           Connect with other learners, share resources, and get help when you're stuck.
         </p>
         <a 
-          href="https://discord.gg/PZcZjd7e" 
+          href="https://discord.gg/VRdfUHVUQd" 
           target="_blank" 
           rel="noopener noreferrer"
           className="discord-button"
@@ -369,7 +369,7 @@ function DiscordSection() {
 function Footer() {
   const socials = [
     { name: 'Twitch', url: 'https://www.twitch.tv/bigbraintimetv', icon: '🎮' },
-    { name: 'Discord', url: 'https://discord.gg/PZcZjd7e', icon: '💬' },
+    { name: 'Discord', url: 'https://discord.gg/VRdfUHVUQd', icon: '💬' },
     { name: 'Bluesky', url: 'https://bsky.app/profile/bigbraintimetv.bsky.social', icon: '☁️' },
     { name: 'YouTube', url: 'https://www.youtube.com/@bigbraintimetv', icon: '📺' },
     { name: 'GitHub', url: 'https://github.com/orgs/BigBrainTimeTV/repositories', icon: '💻' }

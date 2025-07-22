@@ -170,7 +170,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Live Site:** [bigbraintime.com](https://bigbraintime.com)
 - **Twitch:** [twitch.tv/bigbraintimetv](https://www.twitch.tv/bigbraintimetv)
-- **Discord:** [discord.gg/PZcZjd7e](https://discord.gg/PZcZjd7e)
+- **Discord:** [discord.gg/VRdfUHVUQd](https://discord.gg/VRdfUHVUQd)
 - **Bluesky:** [@bigbraintimetv](https://bsky.app/profile/bigbraintimetv.bsky.social)
 - **YouTube:** [@bigbraintimetv](https://www.youtube.com/@bigbraintimetv)
 - **GitHub:** [BigBrainTimeTV](https://github.com/orgs/BigBrainTimeTV/repositories)
