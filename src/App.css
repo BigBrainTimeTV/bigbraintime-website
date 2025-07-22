@@ -92,6 +92,12 @@ body {
   align-items: center;
 }
 
+.nav-container > div {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
 .nav-logo {
   background: none;
   border: none;
