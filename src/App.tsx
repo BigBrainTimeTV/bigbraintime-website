@@ -122,50 +122,28 @@ function Navigation() {
   );
 }
 
-function CountdownTimer() {
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-
-  useEffect(() => {
-    const calculateTimeLeft = () => {
-      const launchDate = new Date('2025-08-01T08:00:00Z'); // 10:00 CEST
-      const now = new Date();
-      const difference = launchDate.getTime() - now.getTime();
-
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / 1000 / 60) % 60),
-          seconds: Math.floor((difference / 1000) % 60)
-        });
-      } else {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-      }
-    };
-
-    calculateTimeLeft();
-    const timer = setInterval(calculateTimeLeft, 1000); // Update every second
-
-    return () => clearInterval(timer);
-  }, []);
-
+function TwitchStream() {
   return (
-    <div className="countdown">
-      <div className="countdown-item">
-        <div className="countdown-value">{timeLeft.days}</div>
-        <div className="countdown-label">days</div>
+    <div className="twitch-stream">
+      <div className="stream-container">
+        <iframe
+          src="https://player.twitch.tv/?channel=bigbraintimetv&parent=localhost"
+          height="400"
+          width="100%"
+          allowFullScreen
+          title="BigBrainTime Twitch Stream"
+        />
       </div>
-      <div className="countdown-item">
-        <div className="countdown-value">{timeLeft.hours}</div>
-        <div className="countdown-label">hours</div>
-      </div>
-      <div className="countdown-item">
-        <div className="countdown-value">{timeLeft.minutes}</div>
-        <div className="countdown-label">minutes</div>
-      </div>
-      <div className="countdown-item">
-        <div className="countdown-value">{timeLeft.seconds}</div>
-        <div className="countdown-label">seconds</div>
+      <div className="stream-info">
+        <p className="stream-status">🔴 Live Now</p>
+        <a 
+          href="https://www.twitch.tv/bigbraintimetv" 
+          target="_blank"
+          rel="noopener noreferrer"
+          className="stream-link"
+        >
+          Watch on Twitch →
+        </a>
       </div>
     </div>
   );
@@ -264,12 +242,7 @@ function HeroSection() {
           </button>
         </form>
         
-        <div className="launch-date">
-          <span className="launch-label">First Stream:</span>
-          <span className="launch-value">August 1, 2025</span>
-        </div>
-        
-        <CountdownTimer />
+        <TwitchStream />
         <ShareButtons />
       </div>
     </section>

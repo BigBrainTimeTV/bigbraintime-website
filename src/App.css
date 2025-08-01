@@ -459,6 +459,80 @@ body {
   letter-spacing: 0.1em;
 }
 
+.twitch-stream {
+  margin-top: var(--space-lg);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.stream-container {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px var(--shadow);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.stream-container iframe {
+  display: block;
+  border: none;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.stream-container:hover iframe {
+  transform: scale(1.02);
+}
+
+.stream-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-radius: 0 0 12px 12px;
+}
+
+.stream-status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0;
+}
+
+.stream-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.stream-link:hover {
+  color: var(--accent);
+  transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+  .stream-info {
+    flex-direction: column;
+    gap: var(--space-xs);
+    text-align: center;
+  }
+  
+  .stream-container iframe {
+    height: 300px;
+  }
+}
+
 .discord-section {
   padding: var(--space-xl) 0;
   background: var(--surface);
