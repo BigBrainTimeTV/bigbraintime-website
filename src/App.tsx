@@ -127,7 +127,7 @@ function TwitchStream() {
     <div className="twitch-stream">
       <div className="stream-container">
         <iframe
-          src="https://player.twitch.tv/?channel=bigbraintimetv&parent=localhost"
+          src="https://player.twitch.tv/?channel=bigbraintimetv"
           height="400"
           width="100%"
           allowFullScreen
@@ -178,39 +178,6 @@ function ShareButtons() {
 }
 
 function HeroSection() {
-  const [email, setEmail] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    try {
-      const response = await fetch('https://formspree.io/f/mjkraqqa', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: email,
-          _subject: 'New BigBrainTime Signup'
-        })
-      });
-
-      if (response.ok) {
-        window.sa_event?.('email_signup');
-        setEmail('');
-        alert('Welcome aboard! Check your email to confirm.');
-      } else {
-        alert('Something went wrong. Try again?');
-      }
-    } catch (error) {
-      alert('Something went wrong. Try again?');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <section className="hero">
       <div className="hero-content">
@@ -222,25 +189,6 @@ function HeroSection() {
           and whatever the community throws at me next. 
           Every failure and breakthrough streamed live on Twitch.
         </p>
-        
-        <form className="signup-form" onSubmit={handleSubmit}>
-          <input
-            type="email"
-            placeholder="Get notified when we go live"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className="email-input"
-            disabled={isSubmitting}
-          />
-          <button type="submit" className="cta-button primary" disabled={isSubmitting}>
-            {isSubmitting ? (
-              <span>Joining... <span className="loading-dots">...</span></span>
-            ) : (
-              'Join the Journey'
-            )}
-          </button>
-        </form>
         
         <TwitchStream />
         <ShareButtons />

@@ -166,42 +166,7 @@ body {
 }
 
 
-.signup-form {
-  display: flex;
-  gap: var(--space-sm);
-  max-width: 500px;
-  margin: 0 auto var(--space-md);
-  flex-direction: column;
-}
 
-@media (min-width: 640px) {
-  .signup-form {
-    flex-direction: row;
-  }
-}
-
-.email-input {
-  flex: 1;
-  padding: 1rem 1.5rem;
-  background: var(--surface);
-  border: 2px solid var(--input-border);
-  border-radius: 12px;
-  color: var(--text-primary);
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
-
-.email-input:focus {
-  outline: none;
-  border-color: var(--input-border-focus);
-  box-shadow: 0 0 0 3px var(--input-shadow);
-}
-
-.email-input:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  background: var(--background);
-}
 
 
 .theme-toggle {
